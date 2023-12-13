@@ -12,6 +12,7 @@ class MenuController {
     private val menuRecommend = MenuRecommend()
 
     private var coaches = mutableListOf<Coach>()
+    private val weekdayCategory = menuRecommend.getWeekdayCategory()
 
     init {
         outputView.printServiceStartMessage()
@@ -43,7 +44,7 @@ class MenuController {
 
     private fun createCoachItems(coachNames: List<String>, cantEatMenus: MutableList<List<String>>) {
         for (idx in coachNames.indices) {
-            coaches.add(Coach(coachNames[idx], cantEatMenus[idx], menuRecommend))
+            coaches.add(Coach(coachNames[idx], cantEatMenus[idx], weekdayCategory))
         }
     }
 

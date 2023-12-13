@@ -2,11 +2,10 @@ package menu.domain
 
 import camp.nextstep.edu.missionutils.Randoms
 
-class Coach(private val name: String, private val cantEatMenu: List<String>, private val recommend: MenuRecommend) {
+class Coach(private val name: String, private val cantEatMenu: List<String>, private val weekdayCategory: MutableList<Category>) {
     private val recommendMenus = mutableListOf<String>()
 
     private fun coachToChooseMenu(): MutableList<String> {
-        val weekdayCategory = recommend.getWeekdayCategory()
         weekdayCategory.forEach { category ->
             val menu = chooseRecommendMenu(category)
             if (checkDuplicateRecommend(menu)) {
@@ -23,7 +22,6 @@ class Coach(private val name: String, private val cantEatMenu: List<String>, pri
         } while (cantEatMenu.contains(menu))
         return menu
     }
-
 
     private fun checkDuplicateRecommend(menu: String): Boolean {
         return !recommendMenus.contains(menu)
