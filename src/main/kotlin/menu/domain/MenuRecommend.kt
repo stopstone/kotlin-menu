@@ -11,8 +11,9 @@ class MenuRecommend {
     private fun weekdayOfCategory() {
         while (weekCategory.size != 5) {
             val menu = dayOfRecommend()
-            if (checkDuplicateCategory(menu))
-            weekCategory.add(menu)
+            if (checkDuplicateCategory(menu)) {
+                weekCategory.add(menu)
+            }
         }
     }
 
