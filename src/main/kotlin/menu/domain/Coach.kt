@@ -2,7 +2,7 @@ package menu.domain
 
 import camp.nextstep.edu.missionutils.Randoms
 
-class Coach(private val name: String, private val cantEatMenu: List<String>, private val weekdayCategory: MutableList<Category>) {
+class Coach(private val name: String, private val cantEatMenu: List<String>) {
     private val recommendMenus = mutableListOf<String>()
 
     fun coachToChooseMenu(day: Category): MutableList<String> {
