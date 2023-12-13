@@ -33,7 +33,7 @@ class OutputView {
         printWeekday()
         coaches.forEach { coach ->
             print("[ ${coach.getName()} ")
-            println("| ${coach.getRecommendMenus().joinToString(" | ")}]")
+            println("| ${coach.getRecommendMenus().joinToString(" | ")} ]")
         }
 
     }
