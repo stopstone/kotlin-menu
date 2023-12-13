@@ -21,11 +21,7 @@ class MenuController {
         val coachNames = readCoachNames()
         val cantEatMenus = readCantEatMenus(coachNames)
         createCoachItems(coachNames, cantEatMenus)
-        outputView.printResultRecommend()
-        outputView.printWeekday()
-        outputView.printCategory(menuRecommend.getWeekdayCategory())
-        outputView.printRecommendMenu(coaches)
-        outputView.printServiceEndMessage()
+        printResultService()
     }
 
 
@@ -49,5 +45,13 @@ class MenuController {
         for (idx in coachNames.indices) {
             coaches.add(Coach(coachNames[idx], cantEatMenus[idx], menuRecommend))
         }
+    }
+
+    private fun printResultService() {
+        outputView.printResultRecommend()
+        outputView.printWeekday()
+        outputView.printCategory(menuRecommend.getWeekdayCategory())
+        outputView.printRecommendMenu(coaches)
+        outputView.printServiceEndMessage()
     }
 }

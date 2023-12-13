@@ -30,6 +30,7 @@ class OutputView {
     }
 
     fun printRecommendMenu(coaches: MutableList<Coach>) {
+        printWeekday()
         coaches.forEach { coach ->
             print("[ ${coach.getName()} ")
             println("| ${coach.getRecommendMenus().joinToString(" | ")}]")
