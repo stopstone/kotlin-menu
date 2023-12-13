@@ -9,10 +9,9 @@ import menu.view.OutputView
 class MenuController {
     private val outputView = OutputView()
     private val inputView = InputView()
-    private val menuRecommend = MenuRecommend()
 
     private var coaches = mutableListOf<Coach>()
-    private val weekdayCategory = menuRecommend.getWeekdayCategory()
+    private val weekdayCategory = MenuRecommend().getWeekdayCategory()
 
     init {
         outputView.printServiceStartMessage()
@@ -22,6 +21,7 @@ class MenuController {
         val coachNames = readCoachNames()
         val cantEatMenus = readCantEatMenus(coachNames)
         createCoachItems(coachNames, cantEatMenus)
+        initRecommend()
         printResultService()
     }
 
@@ -48,10 +48,18 @@ class MenuController {
         }
     }
 
+    private fun initRecommend() {
+        weekdayCategory.forEach {day ->
+            for (coach in coaches) {
+                coach.coachToChooseMenu(day)
+            }
+        }
+    }
+
     private fun printResultService() {
         outputView.printResultRecommend()
         outputView.printWeekday()
-        outputView.printCategory(menuRecommend.getWeekdayCategory())
+        outputView.printCategory(weekdayCategory)
         outputView.printRecommendMenu(coaches)
         outputView.printServiceEndMessage()
     }
