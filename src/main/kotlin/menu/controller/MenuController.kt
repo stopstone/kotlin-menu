@@ -31,15 +31,9 @@ class MenuController {
 
     private fun readCoachNames(): List<String> {
         outputView.readCoachNamesMessage()
-        while (true) {
-            try {
-                val coachNames = inputView.readCoachNames()
-                coachValidate(coachNames)
-                return coachNames
-            } catch (e: IllegalArgumentException) {
-                println(e.message)
-            }
-        }
+        val coachNames = inputView.readCoachNames()
+        coachValidate(coachNames)
+        return coachNames
     }
 
     private fun readCantEatMenus(coachNames: List<String>): MutableList<List<String>> {

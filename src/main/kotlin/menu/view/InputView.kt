@@ -5,9 +5,16 @@ import menu.validator.ValidateMenu.menuValidate
 
 class InputView {
     fun readCoachNames(): List<String> {
-        val coachNames =  Console.readLine()
-        println()
-        return coachNames.split(",")
+        while (true) {
+            try {
+                val coachNames =  Console.readLine()
+                println()
+                return coachNames.split(",")
+            } catch (e: IllegalArgumentException) {
+                println(e.message)
+            }
+        }
+
     }
 
     fun readCantEatMenus(): List<String> {
